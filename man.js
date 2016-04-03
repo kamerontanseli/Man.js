@@ -1,4 +1,4 @@
-// Jquery Data Management Library
+// Data Management Library
 
 var Man = (function(){
 
