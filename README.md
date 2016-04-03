@@ -58,7 +58,24 @@ Returns `this.data`.
 people.getAll() // [{name: "Bob"}, {name: "Steve"}]
 ```
 
+### Extendable
 
+```javascript
 
+var extendedMan = (function(_super){
 
+  $.extend(extendedMan.prototype, _super.prototype); // clone prototypes to new constructor 
+
+   function extendedMan(extraProp, data, filterBy) { // new object
+      this.extraProp = extraProp; 
+      _super.call(this, data, filterBy); // use _super's constructor and apply result to this
+   }
+   
+   extendedMan.prototype.extraMethod = function(){ ... }; 
+   
+   return extendedMan; // return function as public 
+   
+})(Man); // Add Man as _super 
+
+```
 
